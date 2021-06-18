@@ -1,0 +1,29 @@
+<section>
+    <h1>Graph Data</h1>
+    <h5 class="mb-0">Select Dates for filter :</h5>
+    <div class="filter-by-dates d-flex justify-content-end mb-5">
+        <div class="filter-outer d-flex align-items-end">
+            <div>
+                <label class="d-block" for="start">From</label>
+                <p-calendar id="start" [(ngModel)]="startDate"></p-calendar>
+            </div>
+            <div class="mx-3">
+                <label class="d-block" for="end">To</label>
+                <p-calendar id="end" [(ngModel)]="endDate"></p-calendar>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="setDates()" [disabled]="!(startDate && endDate)">Filter</button>
+            </div>
+        </div>
+    </div>
+    <div class="graph-section">
+        <div>
+            <canvas baseChart
+              [chartType]="'line'"
+              [labels]="chartLabels"     
+              [datasets]="chartData"
+              [options]="chartOption">
+            </canvas>
+          </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<section class="main-layout">
+    <div class="sidebar" [ngClass]="{'show-menu': showMenu}">
+        <ul>
+            <li class="text-end d-block d-lg-none" (click)="showMenu = false"><i class="pi pi-times" style="font-size: 2rem"></i></li>
+            <li [routerLink]="['landing']" routerLinkActive="active">Home</li>
+            <li [routerLink]="['graph-data']" routerLinkActive="active">Graph Data</li>
+        </ul>
+    </div>
+    <nav class="pt-4 d-block d-lg-none">
+        <span (click)="showMenu = true">
+            <i class="pi pi-bars" style="font-size: 2rem"></i>
+        </span>
+    </nav>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+</section>
